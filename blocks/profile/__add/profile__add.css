@@ -9,7 +9,6 @@
     background-color: #000;
     border: 1px solid #fff;
     width: 100%;
-    min-height: 50px;
     box-sizing: border-box;
 }
 .profile__add:hover {
