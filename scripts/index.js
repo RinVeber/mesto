@@ -26,7 +26,7 @@ const userDescription = document.querySelector('.profile__description');
 
 let editElement = document.querySelector('.popup__edit-profile');
 let nameInput = document.querySelector('.popup__name_input');
-let descriptionInput = document.querySelector('.popup_description_input');
+let descriptionInput = document.querySelector('.popup__description_input');
 
 function formSubmitHandler (evt) {
 	evt.preventDefault(); // Эта строчка отменяет стандартную отправку формы.
