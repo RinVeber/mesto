@@ -3,8 +3,7 @@
     justify-content: flex-start;
     align-items: flex-start;
     max-width: 882px;
-    width: 100%;
-    margin: 0 auto 0 auto;
+    margin: 0 auto;
     padding: 45px 0 41px;
     border-bottom: 1px solid rgba(84, 84, 84, 0.7);
     }
@@ -17,14 +16,14 @@
     }
     @media screen and (max-width: 767px) {
         .header {
-            max-width: 582px;
+            max-width: 612px;
         }
     }
 
 
     @media screen and (max-width: 680px) {
         .header {
-            max-width: 238px;
+            max-width: 475px;
             padding-top: 28px;
             padding-left: 27px;
             padding-bottom: 31px;

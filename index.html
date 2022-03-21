@@ -4,7 +4,6 @@
 <head>
     <meta charset="UTF-8">
     <link rel="stylesheet" href="./pages/index.css">
-    
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Место</title>
 </head>
@@ -12,7 +11,7 @@
 <body>
     <div class="page">
         <header class="header">
-            <img class="header__logo" src="./image/logo.svg" alt="Логотип шапки">
+            <a href="./"><img class="header__logo" src="./image/logo.svg" alt="Логотип шапки"></a>
         </header>
 
         <main class="content">
@@ -21,12 +20,10 @@
                 <div class="profile__info">
                     <h1 class="profile__name">Жак-Ив Кусто</h1>
                     <button type="button" class="profile__edit">
-                        
                     </button>
                     <p class="profile__description">Исследователь океана</p>
                 </div>
                 <button type="button" class="profile__add">
-                    <img src="image/Add_button.svg" alt="Тут должна быть картинка">
                 </button>
             </section>
             <section class="elements">
@@ -37,7 +34,6 @@
                             <h2 class="element__title">Карачевск</h2>
                             <button type="button" class="element__heart"></button>
                         </div>
-
                     </li>
 
                     <li class="element">
@@ -54,7 +50,6 @@
                             <h2 class="element__title">Домбай</h2>
                             <button type="button" class="element__heart"></button>
                         </div>
-
                     </li>
 
                     <li class="element">
@@ -75,7 +70,7 @@
                     <li class="element">
                         <img src="image/Karachevsk.jpg" class="element__photo" alt="Карачевск">
                         <div class="element__text">
-                            <h2 class="element__title">Карачевск Ч....</h2>
+                            <h2 class="element__title">Карачевск Чергизова</h2>
                             <button type="button" class="element__heart"></button>
                         </div>
                     </li>
@@ -88,10 +83,10 @@
         <div class="popup popup_opened">
             <div class="popup__window">
                 <button type="button" class="popup__close-button"></button>
-                <form name="popup" class="popup__edit-profile">
+                <form name="popup" class="popup__form popup__edit-profile">
                     <h2 class="popup__title">Редактировать профиль</h2>
-                    <input type="text" name="name" class="popup__name">
-                    <input type="text" name="description" class="popup__description">
+                    <input type="text" name="name" class="popup__name popup__name_input">
+                    <input type="text" name="description" class="popup__description popup_description_input">
                     <button type="submit" class="popup__submit-button">Сохранить</button>
                 </form>
             </div>

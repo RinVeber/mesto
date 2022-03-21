@@ -6,7 +6,8 @@
     color: #fff;
     line-height: 22px;
     font-size: 18px;
-    margin: 48px 36px 37px 36px;
+    margin-top: 48px;
+    margin-bottom: 0;
     transition: opacity .2s ease;
     border: none;
     cursor: pointer;
@@ -18,10 +19,10 @@
     opacity: 0.6;
 }
 
-@media screen and (max-width: 767px) {
+@media screen and (max-width: 680px) {
     .popup__submit-button {
         max-width: 232px;
-        margin: 45px 22px 25px;
+        margin-top: 45px;
         font-size: 14px;
     }
     

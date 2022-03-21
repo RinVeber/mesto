@@ -1,6 +1,7 @@
 .profile__add {
     max-width: 150px;
     min-height: 50px;
+    background-size: 22px;
     align-self: center;
     margin: 0 0 0 auto;
     padding: 0;
@@ -9,6 +10,9 @@
     border: 1px solid #fff;
     width: 100%;
     box-sizing: border-box;
+    background-image: url(../../../image/Add_button.svg);
+    background-repeat: no-repeat;
+    background-position: center;
 }
 .profile__add:hover {
     opacity: 0.6;
@@ -23,7 +27,8 @@
 @media screen and (max-width: 768px) {
     .profile__add {
         margin: 36px auto 0;
-        max-width: 300px;
+        width: 300px;
+        background-size: 16px;
 
     }
     
