@@ -6,6 +6,10 @@
     align-self: center;
     background-color: #000;
     border: 1px solid #fff;
+    background-image: url(../../../image/edit__button.svg);
+    background-repeat: no-repeat;
+    background-position: center;
+    cursor: pointer;
 }
 .profile__edit:hover {
     opacity: 0.6;

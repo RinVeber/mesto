@@ -4,11 +4,11 @@ const closeButton = popupElement.querySelector('.popup__close-button');
 const submitButton = popupElement.querySelector('.popup__submit-button');
 
 function openPopup() {
-	popupElement.classList.remove('popup_closed');
+	popupElement.classList.remove('popup_opened');
 }
 
 function closePopup() {
-	popupElement.classList.add('popup_closed');
+	popupElement.classList.add('popup_opened');
 }
 
 editProfile.addEventListener('click', openPopup)
