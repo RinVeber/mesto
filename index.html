@@ -19,7 +19,7 @@
                 <img src="image/profile_avatar.jpg" alt="Ваш аватар" class="profile__avatar">
                 <div class="profile__info">
                     <h1 class="profile__name">Жак-Ив Кусто</h1>
-                    <button type="button" class="profile__edit">
+                    <button type="button" class="profile__edit popup_opened">
                     </button>
                     <p class="profile__description">Исследователь океана</p>
                 </div>
@@ -80,13 +80,13 @@
         <footer class="footer">
             <p class="footer__copyright">&copy; 2022 Кирилл.</p>
         </footer>
-        <div class="popup popup_opened">
+        <div class="popup">
             <div class="popup__window">
                 <button type="button" class="popup__close-button"></button>
-                <form name="popup" class="popup__form popup__edit-profile">
+                <form name="popup" class="popup__form">
                     <h2 class="popup__title">Редактировать профиль</h2>
-                    <input type="text" name="name" class="popup__name popup__name_input">
-                    <input type="text" name="description" class="popup__description popup__description_input">
+                    <input type="text" name="name" class="popup__input popup__input_type_name">
+                    <input type="text" name="description" class="popup__input popup__input_type_description">
                     <button type="submit" class="popup__submit-button">Сохранить</button>
                 </form>
             </div>

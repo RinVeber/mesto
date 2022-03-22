@@ -1,7 +1,7 @@
 .elements__list {
     max-width: 880px;
     padding: 0;
-    margin: 0;
+    margin: 0 auto;
     display: grid;
     grid-template-columns: repeat(3, 1fr);
 	grid-template-rows: repeat(2, 1fr);
@@ -12,6 +12,7 @@
     .elements__list {
         grid-template-columns: repeat(2, 1fr);
         gap: 20px 19px;
+        max-width: 712px;
     }
     
 }
@@ -19,6 +20,6 @@
 @media screen and (max-width: 680px) {
 	.elements__list {
 		grid-template-columns: repeat(1, 1fr);
-        gap: 20px 19px;
+        max-width: 282px;
 	}
 }

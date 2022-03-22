@@ -6,7 +6,7 @@
     border: none;
     padding: 0;
 	cursor: pointer;
-    margin-top: -36px;
+    top: -36px;
     right: -36px;
     transition: opacity .2s ease;
     opacity: 1;
@@ -20,7 +20,7 @@
   @media screen and (max-width: 767px) {
       .popup__close-button {
         right: -4px;
-        top: -4px;
+        top: -38px;
         background-size: 20px;
         background-repeat: no-repeat;
         background-position: center;

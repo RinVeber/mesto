@@ -11,9 +11,18 @@
     background-repeat: no-repeat;
     background-position: center;
     cursor: pointer;
+    padding: 0;
 }
 .profile__edit:hover {
     opacity: 0.6;
+}
+
+@media screen and (max-width: 1023px) {
+    .profile__edit {
+        margin-right: 10px;
+        margin-left: 10px;
+    }
+    
 }
 
 @media screen and (max-width: 768px) {

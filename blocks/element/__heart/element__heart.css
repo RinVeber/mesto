@@ -11,6 +11,8 @@
     background-repeat: no-repeat;
     cursor: pointer;
     border: none;
+    opacity: 1;
+    background-color: #fff;
 }
 .element__heart:hover {
     opacity: 0.6;

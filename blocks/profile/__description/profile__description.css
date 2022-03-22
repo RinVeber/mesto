@@ -5,7 +5,7 @@
     white-space: nowrap;
     overflow: hidden;
     line-height: 22px;
-    max-width: 425px;
+    max-width: 336px;
     
   }
 
@@ -13,6 +13,7 @@
     .profile__description {
       font-size: 14px;
       line-height: 17px;
+      max-width: 189px;
     }
     
   }

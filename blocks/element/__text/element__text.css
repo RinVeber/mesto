@@ -4,9 +4,6 @@
     background-color: #fff;
     justify-content: space-between;
     border-radius: 0 0 10px 10px;
-    padding-left: 21px;
-    text-overflow: ellipsis;
-    white-space: nowrap;
-    overflow: hidden;
+    max-width: 282px;
     
 }
