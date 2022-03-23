@@ -2,8 +2,7 @@
     width: 24px;
     height: 24px;
     background-size: 10px;
-    margin: 0;
-    margin-left: 18px;
+    margin: -5px 0 0 18px;
     align-self: center;
     background-color: #000;
     border: 1px solid #fff;
@@ -27,8 +26,7 @@
 
 @media screen and (max-width: 768px) {
     .profile__edit {
-        margin-right: auto;
-        margin-left: 10px;
+        margin: -10px auto 0 10px;
         width: 18px;
         height: 18px;
         background-size: 7.5px;
