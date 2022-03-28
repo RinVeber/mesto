@@ -12,11 +12,9 @@ const cardTemplate = document.querySelector('#card-template').content;
 function openPopupAdd() {
 	addPopup.classList.add('popup_opened');
 }
-
 function closePopupAdd() {
 	addPopup.classList.remove('popup_opened');
 }
-
 cardAdd.addEventListener('click', openPopupAdd)
 closeButtonAdd.addEventListener('click', closePopupAdd)
 
@@ -34,36 +32,49 @@ function addCard() {
 		link: inputPlaceLink.value,
 	}))
 }
-function createCard(name, link) {
-	const newCard = cardTemplate.querySelector('.card').content.firstElementChild.cloneNode(true);
+function createCard(card) {
+	const newCard = cardTemplate.querySelector('.card').cloneNode(true);
 
-	const elementName = newCard.querySelector('.element__title');
-	elementName.textContent = name;
+	newCard.querySelector('.element__title').textContent = card.name;
 
-	const elementPhoto = newCard.querySelector('.element__photo');
-	elementPhoto.querySelector('.element__title').textContent = name;
-	elementPhoto.querySelector('.element__photo').src = link;
+	newCard.querySelector('.element__photo').src = card.link;
+	newCard.querySelector('.element__photo').alt = card.name;
   
 	const like = newCard.querySelector('.element__heart');
 	like.addEventListener('click',  function(evt) {
 		evt.target.classList.toggle('element__heart_active')});
+	
+	const remove = newCard.querySelector('.element__delete');
+	remove.addEventListener('click', deleteCard);
 
 	return newCard;
 }
-
-function openPhoto (evt) {
-	photoFull.src = evt.target.src;
-	photoCaption.textContent = evt.target.alt;
-	openPopup(popupPhoto);
-}
-
+const deleteCard = (evt) => {
+	const card = evt.target.closest('.card');
+	card.remove();
+  };
 const renderCards = (cards) => (
 	cards.reverse().forEach((card) => cardElements.append(createCard(card)))
   );
   renderCards(initialCards);
-let elementLikeList = document.querySelectorAll('.element__heart');
-elementLikeList.forEach((elementLike, i, a) => {
-	elementLike.addEventListener('click', () => {
-		elementLike.classList.toggle('element__heart_active');
-	})
-});
+
+  const popupShow = document.querySelector('#popup-show');
+  const popupImage = popupShow.querySelector('.popup__image');
+  const popupText = popupShow.querySelector('.popup__image-subtitle');
+
+
+const openPhoto = (name, link) => {
+	popupText.textContent = name;
+  	popupImage.src = link;
+  	popupImage.alt = name;
+  openPopupPhoto();
+};
+
+function openPopupPhoto() {
+	popupShow.classList.add('popup_opened');
+}
+function closePopupPhoto() {
+	popupShow.classList.remove('popup_opened');
+}
+popupShow.addEventListener('click', openPopupPhoto)
+closeButtonAdd.addEventListener('click', closePopupPhoto)
