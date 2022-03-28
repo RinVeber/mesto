@@ -1,0 +1,14 @@
+.popup__image-subtitle {
+    color: white;
+    margin: 0;
+    margin-top: 10px;
+    padding: 0;
+    max-width: 292px;
+}
+
+@media  screen and (max-width: 680px) {
+    .popup__image-subtitle {
+        margin: 0 auto;
+    }
+    
+}

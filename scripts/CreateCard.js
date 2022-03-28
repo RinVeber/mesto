@@ -39,35 +39,37 @@ function createCard(card) {
 
 	newCard.querySelector('.element__photo').src = card.link;
 	newCard.querySelector('.element__photo').alt = card.name;
-  
+
 	const like = newCard.querySelector('.element__heart');
-	like.addEventListener('click',  function(evt) {
-		evt.target.classList.toggle('element__heart_active')});
-	
+	like.addEventListener('click', function (evt) {
+		evt.target.classList.toggle('element__heart_active')
+	});
+
 	const remove = newCard.querySelector('.element__delete');
 	remove.addEventListener('click', deleteCard);
+
+	const photo = newCard.querySelector('.element__photo');
+	photo.addEventListener('click', () => openPhoto(card));
 
 	return newCard;
 }
 const deleteCard = (evt) => {
 	const card = evt.target.closest('.card');
 	card.remove();
-  };
+};
 const renderCards = (cards) => (
 	cards.reverse().forEach((card) => cardElements.append(createCard(card)))
-  );
-  renderCards(initialCards);
+);
+renderCards(initialCards);
 
-  const popupShow = document.querySelector('#popup-show');
-  const popupImage = popupShow.querySelector('.popup__image');
-  const popupText = popupShow.querySelector('.popup__image-subtitle');
+const popupShow = document.querySelector('#popup-show');
+const closeButtonShow = popupShow.querySelector('.popup__close-button');
 
-
-const openPhoto = (name, link) => {
-	popupText.textContent = name;
-  	popupImage.src = link;
-  	popupImage.alt = name;
-  openPopupPhoto();
+const openPhoto = (card) => {
+	popupShow.classList.add('popup_opened');
+	popupShow.querySelector('.popup__image').src = card.link;
+	popupShow.querySelector('.popup__image-subtitle').textContent = card.name;
+	
 };
 
 function openPopupPhoto() {
@@ -77,4 +79,8 @@ function closePopupPhoto() {
 	popupShow.classList.remove('popup_opened');
 }
 popupShow.addEventListener('click', openPopupPhoto)
-closeButtonAdd.addEventListener('click', closePopupPhoto)
+
+closeButtonShow.addEventListener('click', function(evt){
+	evt.stopPropagation();
+	closePopupPhoto();
+})
