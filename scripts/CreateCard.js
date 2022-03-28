@@ -62,25 +62,25 @@ const renderCards = (cards) => (
 );
 renderCards(initialCards);
 
-const popupShow = document.querySelector('#popup-show');
-const closeButtonShow = popupShow.querySelector('.popup__close-button');
+const popupPhoto = document.querySelector('#popup-photo');
+const closeButtonPhoto = popupPhoto.querySelector('.popup__close-button');
 
 const openPhoto = (card) => {
-	popupShow.classList.add('popup_opened');
-	popupShow.querySelector('.popup__image').src = card.link;
-	popupShow.querySelector('.popup__image-subtitle').textContent = card.name;
+	popupPhoto.classList.add('popup_opened');
+	popupPhoto.querySelector('.popup__image').src = card.link;
+	popupPhoto.querySelector('.popup__image-subtitle').textContent = card.name;
 	
 };
 
 function openPopupPhoto() {
-	popupShow.classList.add('popup_opened');
+	popupPhoto.classList.add('popup_opened');
 }
 function closePopupPhoto() {
-	popupShow.classList.remove('popup_opened');
+	popupPhoto.classList.remove('popup_opened');
 }
-popupShow.addEventListener('click', openPopupPhoto)
+popupPhoto.addEventListener('click', openPopupPhoto)
 
-closeButtonShow.addEventListener('click', function(evt){
+closeButtonPhoto.addEventListener('click', function(evt){
 	evt.stopPropagation();
 	closePopupPhoto();
 })
