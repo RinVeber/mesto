@@ -1,27 +1,21 @@
 const cardAdd = document.querySelector('.profile__add');
-const addPopup = document.querySelector('#popup-add');
-const formCard = addPopup.querySelector('.popup__form');
-const inputPlaceName = addPopup.querySelector('.popup__input_type_placeName');
-const inputPlaceLink = addPopup.querySelector('.popup__input_type_placeLink');
+const popupAdd = document.querySelector('#popup-add');
+const formCard = popupAdd.querySelector('.popup__form');
+const inputPlaceName = popupAdd.querySelector('.popup__input_type_placeName');
+const inputPlaceLink = popupAdd.querySelector('.popup__input_type_placeLink');
 
-const closeButtonAdd = addPopup.querySelector('.popup__close-button');
+const buttonCloseAdd = popupAdd.querySelector('.popup__close-button');
 
 const cardElements = document.querySelector('.elements__list');
 const cardTemplate = document.querySelector('#card-template').content;
 
-function openPopupAdd() {
-	addPopup.classList.add('popup_opened');
-}
-function closePopupAdd() {
-	addPopup.classList.remove('popup_opened');
-}
-cardAdd.addEventListener('click', openPopupAdd)
-closeButtonAdd.addEventListener('click', closePopupAdd)
+cardAdd.addEventListener('click', () => {openPopup(popupAdd)})
+buttonCloseAdd.addEventListener('click', () => {closePopup(popupAdd)})
 
 function formSubmitHandlerAdd(evt) {
 	evt.preventDefault();
 	addCard();
-	closePopupAdd();
+	closePopup(popupAdd);
 }
 
 formCard.addEventListener('submit', formSubmitHandlerAdd);
@@ -37,8 +31,10 @@ function createCard(card) {
 
 	newCard.querySelector('.element__title').textContent = card.name;
 
-	newCard.querySelector('.element__photo').src = card.link;
-	newCard.querySelector('.element__photo').alt = card.name;
+	const photo = newCard.querySelector('.element__photo');
+	photo.alt = card.name;
+	photo.src = card.link;
+	photo.addEventListener('click', () => openPhoto(card));
 
 	const like = newCard.querySelector('.element__heart');
 	like.addEventListener('click', function (evt) {
@@ -47,9 +43,6 @@ function createCard(card) {
 
 	const remove = newCard.querySelector('.element__delete');
 	remove.addEventListener('click', deleteCard);
-
-	const photo = newCard.querySelector('.element__photo');
-	photo.addEventListener('click', () => openPhoto(card));
 
 	return newCard;
 }
@@ -64,23 +57,19 @@ renderCards(initialCards);
 
 const popupPhoto = document.querySelector('#popup-photo');
 const closeButtonPhoto = popupPhoto.querySelector('.popup__close-button');
+const photoShow = popupPhoto.querySelector('.popup__image');
+const photoText = popupPhoto.querySelector('.popup__image-subtitle');
 
 const openPhoto = (card) => {
-	popupPhoto.classList.add('popup_opened');
-	popupPhoto.querySelector('.popup__image').src = card.link;
-	popupPhoto.querySelector('.popup__image-subtitle').textContent = card.name;
+	openPopup(popupPhoto);
+	photoShow.src = card.link;
+	photoText.textContent = card.name;
 	
 };
 
-function openPopupPhoto() {
-	popupPhoto.classList.add('popup_opened');
-}
-function closePopupPhoto() {
-	popupPhoto.classList.remove('popup_opened');
-}
-popupPhoto.addEventListener('click', openPopupPhoto)
+popupPhoto.addEventListener('click', () => {openPopup(popupPhoto)})
 
 closeButtonPhoto.addEventListener('click', function(evt){
 	evt.stopPropagation();
-	closePopupPhoto();
+	closePopup(popupPhoto);
 })
