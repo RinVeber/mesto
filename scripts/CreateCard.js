@@ -43,8 +43,8 @@ function createCard(card) {
 		evt.target.classList.toggle('element__heart_active')
 	});
 
-	const remove = newCard.querySelector('.element__delete');
-	remove.addEventListener('click', deleteCard);
+	const trash = newCard.querySelector('.element__delete');
+	trash.addEventListener('click', deleteCard);
 
 	return newCard;
 }
@@ -58,7 +58,7 @@ const renderCards = (cards) => (
 renderCards(initialCards);
 
 const popupPhoto = document.querySelector('#popup-photo');
-const closeButtonPhoto = popupPhoto.querySelector('.popup__close-button');
+const buttonClosePhoto = popupPhoto.querySelector('.popup__close-button');
 const photoShow = popupPhoto.querySelector('.popup__image');
 const photoText = popupPhoto.querySelector('.popup__image-subtitle');
 
@@ -70,7 +70,7 @@ const openPhoto = (card) => {
 	
 };
 popupPhoto.addEventListener('click', () => {openPopup(popupPhoto)})
-closeButtonPhoto.addEventListener('click', function(evt){
+buttonClosePhoto.addEventListener('click', function(evt){
 	evt.stopPropagation();
 	closePopup(popupPhoto);
 })
