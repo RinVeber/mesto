@@ -4,9 +4,12 @@ const buttonClose = popupEdit.querySelector('.popup__close-button');
 
 function openPopup(popup) {
 	popup.classList.add('popup_opened');
+	popup.addEventListener('click', closePopupOverlay);
+	document.addEventListener('keydown', handleEscPress);
 }
 
 function closePopup(popup) {
+	document.removeEventListener('keydown', handleEscPress);
 	popup.classList.remove('popup_opened');
 }
 buttonClose.addEventListener('click', () => { closePopup(popupEdit) })
@@ -30,6 +33,7 @@ function checkInfoProfileEdit() {
 	}
 };
 
+
 function openPopupEdit() {
 	nameInput.value = userName.textContent;
 	descriptionInput.value = userDescription.textContent;
@@ -46,3 +50,26 @@ function formSubmitHandlerEdit(evt) {
 
 profileEdit.addEventListener('click', openPopupEdit);
 editElement.addEventListener('submit', formSubmitHandlerEdit);
+
+const handleEscPress = (evt) => {
+	if (evt.key === 'Escape') {
+	  const popup = document.querySelector('.popup_opened');
+	  resetCardAdd();
+	  closePopup(popup);
+	}}
+
+const closePopupOverlay = (evt) => {
+	if (evt.target !== evt.currentTarget) {
+	  return;
+	}
+	inputPlaceName.value = null;
+	inputPlaceLink.value = null;
+	const popup = document.querySelector('.popup_opened');
+	closePopup(popup);
+}
+
+function resetCardAdd () {
+	inputPlaceName.value = null;
+	inputPlaceLink.value = null;
+	closePopup(popupAdd);
+}

@@ -40,28 +40,66 @@
         <div class="popup" id="popup-edit">
             <div class="popup__window">
                 <button type="button" class="popup__close-button"></button>
-                <form name="popup" class="popup__form">
+                <form name="popup" class="popup__form" novalidate>
                     <h2 class="popup__title">Редактировать профиль</h2>
-                    <input type="text" name="name" class="popup__input popup__input_type_name" placeholder="Имя">
-                    <input type="text" name="description" class="popup__input popup__input_type_description" placeholder="О себе">
-                    <button type="submit" class="popup__submit-button">Сохранить</button>
+                    <input 
+                    type="text" 
+                    name="name" 
+                    id="name" 
+                    class="popup__input popup__input_type_name"
+                    placeholder="Имя" 
+                    minlength="2" 
+                    maxlength="40" 
+                    required>
+                    <span class="popup__error" id="name-error">Вы пропустили это поле.</span>
+
+                    <input 
+                    type="text" 
+                    name="description" 
+                    id="description"  
+                    class="popup__input popup__input_type_description" 
+                    placeholder="О себе" 
+                    minlength="2"
+                    maxlength="200" 
+                    required>
+                    <span class="popup__error " id="description-error">Вы пропустили это поле.</span>
+                    <button type="submit" class="popup__submit-button popup__button">Сохранить</button>
                 </form>
             </div>
         </div>
+
         <div class="popup" id="popup-add">
             <div class="popup__window">
-                <button type="button" class="popup__close-button"></button>
-                <form name="popup" class="popup__form">
+                <button type="button" class="popup__close-button "></button>
+                <form name="popup" class="popup__form" novalidate>
                     <h2 class="popup__title">Новое место</h2>
-                    <input type="text" name="placeName" class="popup__input popup__input_type_placeName" placeholder="Название">
-                    <input type="text" name="placeLink" class="popup__input popup__input_type_placeLink" placeholder="Ссылка на картинку">
-                    <button type="submit" class="popup__submit-button">Создать</button>
+                    <input 
+                    type="text" 
+                    name="placeName" 
+                    id="placeName" 
+                    class="popup__input popup__input_type_placeName"
+                    placeholder="Название" 
+                    minlength="1" 
+                    maxlength="30" 
+                    required>
+                    <span class="popup__error" id="placeName-error">Вы пропустили это поле.</span>
+
+                    <input 
+                    type="url" 
+                    name="placeLink"
+                    id="placeLink" 
+                    class="popup__input popup__input_type_placeLink"
+                    placeholder="Ссылка на картинку" 
+                    required>
+                    <span class="popup__error" id="placeLink-error">Введите адрес сайта.</span>
+                    <button type="submit" class="popup__submit-button popup__button">Создать</button>
                 </form>
             </div>
         </div>
+
         <div class="popup" id="popup-photo">
             <div class="popup__fullscreen">
-                <button type="button" class="popup__close-button"></button>
+                <button type="button" class="popup__close-button "></button>
                 <img class="popup__image" alt="тут картинка" src="#">
                 <p class="popup__image-subtitle"></p>
             </div>
@@ -69,7 +107,7 @@
 
         <template id="card-template">
             <li class="element card">
-                <button type="button" class="element__delete"></button>
+                <button type="button" class="element__delete "></button>
                 <img src="#" alt="" class="element__photo">
                 <div class="element__text">
                     <h3 class="element__title"></h3>
@@ -81,6 +119,7 @@
     <script src="./scripts/InitialCard.js"></script>
     <script src="./scripts/index.js"></script>
     <script src="./scripts/CreateCard.js"></script>
+    <script src="./scripts/validate.js"></script>
 </body>
 
 </html>

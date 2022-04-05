@@ -10,14 +10,16 @@ const cardElements = document.querySelector('.elements__list');
 const cardTemplate = document.querySelector('#card-template').content;
 
 cardAdd.addEventListener('click', () => {openPopup(popupAdd)})
-buttonCloseAdd.addEventListener('click', () => {closePopup(popupAdd)})
+buttonCloseAdd.addEventListener('click', () => {resetCardAdd(popupAdd)})
 
 function formSubmitHandlerAdd(evt) {
 	evt.preventDefault();
 	addCard();
+	DisableButtonSubmit(popupAdd);
 	closePopup(popupAdd);
 	inputPlaceName.value = null;
 	inputPlaceLink.value = null;
+	
 }
 
 formCardAdd.addEventListener('submit', formSubmitHandlerAdd);
@@ -74,3 +76,10 @@ buttonClosePhoto.addEventListener('click', function(evt){
 	evt.stopPropagation();
 	closePopup(popupPhoto);
 })
+
+function DisableButtonSubmit(popup) {
+	const buttonSubmit = popup.querySelector('.popup__submit-button');
+	buttonSubmit.classList.add('popup__submit-button_disabled');
+	buttonSubmit.disabled = true;
+	closePopup(popup);
+}
