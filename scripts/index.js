@@ -59,8 +59,8 @@ const closePopupOverlay = (evt) => {
 	if (evt.target !== evt.currentTarget) {
 	  return;
 	}
-	resetCardAdd();
 	const popup = document.querySelector('.popup_opened');
+	resetCardAdd();
 	closePopup(popup);
 }
 
