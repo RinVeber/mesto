@@ -33,14 +33,11 @@ function checkInfoProfileEdit() {
 	}
 };
 
-
 function openPopupEdit() {
 	nameInput.value = userName.textContent;
 	descriptionInput.value = userDescription.textContent;
 	openPopup(popupEdit);
-
 }
-
 
 function formSubmitHandlerEdit(evt) {
 	evt.preventDefault(); // Эта строчка отменяет стандартную отправку формы.
@@ -62,8 +59,7 @@ const closePopupOverlay = (evt) => {
 	if (evt.target !== evt.currentTarget) {
 	  return;
 	}
-	inputPlaceName.value = null;
-	inputPlaceLink.value = null;
+	resetCardAdd();
 	const popup = document.querySelector('.popup_opened');
 	closePopup(popup);
 }
