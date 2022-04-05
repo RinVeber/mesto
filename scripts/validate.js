@@ -69,8 +69,6 @@ const enableValidation = (validationObj) => {
   formList.forEach(formSetList);
 }
 
-
-
 enableValidation({
   formSelector: '.popup__form',
   inputSelector: '.popup__input',
