@@ -42,6 +42,7 @@ const setEventListeners = (formElement, validationObj) => {
   const inputList = Array.from(formElement.querySelectorAll(validationObj.inputSelector));
   const submitButtonElement = formElement.querySelector(validationObj.submitButtonSelector);
   toggleButtonState(inputList, submitButtonElement, validationObj);
+  
   inputList.forEach((inputElement) => {
     inputElement.addEventListener('input', function () {
       checkValidity(formElement, inputElement, validationObj);
@@ -51,13 +52,7 @@ const setEventListeners = (formElement, validationObj) => {
 };
 
 const enableValidation = (validationObj) => {
-  const { formSelector,
-    inputSelector,
-    submitButtonSelector,
-    inactiveButtonClass,
-    inputErrorClass,
-    errorClass } = validationObj;
-
+  const { formSelector } = validationObj;
   const formList = Array.from(document.querySelectorAll(formSelector));
 
   const formSetList = (formElement) => {

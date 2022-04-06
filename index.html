@@ -52,7 +52,6 @@
                     maxlength="40" 
                     required>
                     <span class="popup__error" id="name-error">Вы пропустили это поле.</span>
-
                     <input 
                     type="text" 
                     name="description" 
@@ -83,7 +82,6 @@
                     maxlength="30" 
                     required>
                     <span class="popup__error" id="placeName-error">Вы пропустили это поле.</span>
-
                     <input 
                     type="url" 
                     name="placeLink"
@@ -97,7 +95,7 @@
             </div>
         </div>
 
-        <div class="popup" id="popup-photo">
+        <div class="popup popup_overlay-black" id="popup-photo">
             <div class="popup__fullscreen">
                 <button type="button" class="popup__close-button "></button>
                 <img class="popup__image" alt="тут картинка" src="#">
@@ -106,7 +104,7 @@
         </div>
 
         <template id="card-template">
-            <li class="element card">
+            <li class="element">
                 <button type="button" class="element__delete "></button>
                 <img src="#" alt="" class="element__photo">
                 <div class="element__text">
@@ -116,10 +114,10 @@
             </li>
         </template>
     </div>
-    <script src="./scripts/InitialCard.js"></script>
-    <script src="./scripts/index.js"></script>
-    <script src="./scripts/CreateCard.js"></script>
     <script src="./scripts/validate.js"></script>
+    <script src="./scripts/initial-card.js"></script>
+    <script src="./scripts/index.js"></script>
+    <script src="./scripts/create-card.js"></script>
 </body>
 
 </html>
