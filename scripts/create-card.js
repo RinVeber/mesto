@@ -17,7 +17,7 @@ const photoText = popupPhoto.querySelector('.popup__image-subtitle');
 function handleSubmitAddForm(evt) {
 	evt.preventDefault();
 	addCard();
-	DisableButtonSubmit(popupAdd);
+	disableButtonSubmit(popupAdd);
 	closePopup(popupAdd);
 	inputPlaceName.value = "";
 	inputPlaceLink.value = "";
@@ -68,6 +68,7 @@ const openPhoto = (card) => {
 };
 
 function disableButtonSubmit(popup) {
+	const buttonSubmit = popup.querySelector('.popup__submit-button');
 	buttonSubmit.classList.add('popup__submit-button_disabled');
 	buttonSubmit.disabled = true;
 	closePopup(popup);
