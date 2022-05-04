@@ -1,4 +1,4 @@
-import initialCards from './initialCards.js';
+import initialCards from './initial-сards.js';
 import Card from './Card.js';
 import FormValidator from './FormValidator.js';
 
@@ -46,6 +46,7 @@ const generateCard = (card) => new Card(card, '#card-template').generate();
 const renderCards = (cards) => (
 	cards.reverse().forEach((card) => cardElements.append(generateCard(card)))
 );
+renderCards(initialCards);
 
 const addCard = () => {
 	const newCard = generateCard({
@@ -55,6 +56,7 @@ const addCard = () => {
 
 	cardElements.prepend(newCard);
 };
+
 
 function openPopup(popup) {
 	popup.classList.add('popup_opened');
@@ -134,7 +136,5 @@ buttonClosePhotoShow.addEventListener('click', function (evt) {
 
 editElement.addEventListener('submit', submitFormHandlerEdit);
 formCardAdd.addEventListener('submit', submitFormHandlerAdd);
-
-renderCards(initialCards);
 
 export { openPopup};
