@@ -25,35 +25,35 @@ const editElement = popupEdit.querySelector('.popup__form');
 const nameInput = popupEdit.querySelector('.popup__input_type_name');
 const descriptionInput = popupEdit.querySelector('.popup__input_type_description');
 
- const validateOption = {
+const validateOption = {
 	formSelector: '.popup__form',
 	inputSelector: '.popup__input',
 	submitButtonSelector: '.popup__submit-button',
 	inactiveButtonClass: 'popup__submit-button_disabled',
 	inputErrorClass: 'popup__input_type_error',
 	errorClass: 'popup__error_visible',
-  };
- 
-  const validationPopupEdit = new FormValidator(validateOption, popupEdit);
-  const validationPopupAdd = new FormValidator(validateOption, formCardAdd);
-  
-  validationPopupEdit.enableValidation();
-  validationPopupAdd.enableValidation();
+};
 
-  const generateCard = (card) => new Card(card, '#card-template').generate();
+const validationPopupEdit = new FormValidator(validateOption, popupEdit);
+const validationPopupAdd = new FormValidator(validateOption, formCardAdd);
 
-  const renderCards = (cards) => (
+validationPopupEdit.enableValidation();
+validationPopupAdd.enableValidation();
+
+const generateCard = (card) => new Card(card, '#card-template').generate();
+
+const renderCards = (cards) => (
 	cards.reverse().forEach((card) => cardElements.append(generateCard(card)))
-  );
+);
 
-  const addCard = () => {
+const addCard = () => {
 	const newCard = generateCard({
-	  name: inputPlaceName.value,
-	  link: inputPlaceLink.value,
+		name: inputPlaceName.value,
+		link: inputPlaceLink.value,
 	}, '#card-template');
-  
+
 	cardElements.prepend(newCard);
-  };
+};
 
 function openPopup(popup) {
 	popup.classList.add('popup_opened');
@@ -64,12 +64,6 @@ function openPopup(popup) {
 function closePopup(popup) {
 	document.removeEventListener('keydown', handleEscPress);
 	popup.classList.remove('popup_opened');
-}
-
-function resetCardAdd() {
-	inputPlaceName.value = "";
-	inputPlaceLink.value = "";
-	closePopup(popupAdd);
 }
 
 function checkInfoProfileEdit() {
@@ -84,13 +78,13 @@ function checkInfoProfileEdit() {
 	}
 };
 
-  const submitFormHandlerAdd = (evt) => {
+const submitFormHandlerAdd = (evt) => {
 	evt.preventDefault();
 	addCard();
 	closePopup(popupAdd);
-  };
+};
 
-  function submitFormHandlerEdit(evt) {
+function submitFormHandlerEdit(evt) {
 	evt.preventDefault(); // Эта строчка отменяет стандартную отправку формы.
 	checkInfoProfileEdit();
 	closePopup(popupEdit);
@@ -107,13 +101,13 @@ const openAddPhotoPopup = () => {
 	formCardAdd.reset();
 	validationPopupAdd.resetPopupForm();
 	openPopup(popupAdd);
-  };
-  
+};
+
 
 const handleEscPress = (evt) => {
 	if (evt.key === 'Escape') {
 		const popup = document.querySelector('.popup_opened');
-		resetCardAdd();
+		validationPopupEdit.resetPopupForm();
 		closePopup(popup);
 	}
 }
@@ -123,7 +117,7 @@ const closePopupOverlay = (evt) => {
 		return;
 	}
 	const popup = document.querySelector('.popup_opened');
-	resetCardAdd();
+	validationPopupEdit.resetPopupForm();
 	closePopup(popup);
 }
 
@@ -131,7 +125,7 @@ buttonAddCard.addEventListener('click', openAddPhotoPopup);
 profileEdit.addEventListener('click', openPopupEdit);
 
 buttonClose.addEventListener('click', () => { closePopup(popupEdit) });
-buttonCloseAdd.addEventListener('click',() => { closePopup(popupAdd) });
+buttonCloseAdd.addEventListener('click', () => { closePopup(popupAdd) });
 
 buttonClosePhotoShow.addEventListener('click', function (evt) {
 	evt.stopPropagation();

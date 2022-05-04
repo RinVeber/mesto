@@ -70,7 +70,6 @@ export default  class FormValidator {
   
         inputElement.addEventListener('input', handleInput);
       };
-      this._toggleButtonState(inputList, submitButtonElement, inactiveButtonClass);
       inputList.forEach(inputListIterator);
     }
 
