@@ -2,7 +2,6 @@ import { openPopup } from './indexx.js';
 
 export default class Card {
   _popupPhoto = document.querySelector('#popup-photo');
-  _buttonClosePhoto = this._popupPhoto.querySelector('.popup__close-button');
   _photoShow = this._popupPhoto.querySelector('.popup__image');
   _photoText = this._popupPhoto.querySelector('.popup__image-subtitle');
 

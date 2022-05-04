@@ -18,6 +18,9 @@ const buttonAddCard = document.querySelector('.profile__add')
 const cardElements = document.querySelector('.elements__list');
 const cardTemplate = document.querySelector('#card-template').content;
 
+const popupPhotoShow = document.querySelector('#popup-photo');
+const buttonClosePhotoShow = popupPhotoShow.querySelector('.popup__close-button');
+
 const userName = document.querySelector('.profile__name');
 const userDescription = document.querySelector('.profile__description');
 
@@ -132,6 +135,11 @@ profileEdit.addEventListener('click', openPopupEdit);
 
 buttonClose.addEventListener('click', () => { closePopup(popupEdit) });
 buttonCloseAdd.addEventListener('click',() => { closePopup(popupAdd) });
+
+buttonClosePhotoShow.addEventListener('click', function (evt) {
+	evt.stopPropagation();
+	closePopup(popupPhotoShow);
+});
 
 editElement.addEventListener('submit', submitFormHandlerEdit);
 formCardAdd.addEventListener('submit', submitFormHandlerAdd);
