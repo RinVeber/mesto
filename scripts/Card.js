@@ -4,6 +4,15 @@ export default class Card {
   _popupPhoto = document.querySelector('#popup-photo');
   _photoShow = this._popupPhoto.querySelector('.popup__image');
   _photoText = this._popupPhoto.querySelector('.popup__image-subtitle');
+  _popupEdit = document.querySelector('#popup-edit');
+  _buttonClose = this._popupEdit.querySelector('.popup__close-button');
+
+  _editElement = this._popupEdit.querySelector('.popup__form');
+  _nameInput = this._popupEdit.querySelector('.popup__input_type_name');
+  _descriptionInput = this._popupEdit.querySelector('.popup__input_type_description');
+
+  _popupAdd = document.querySelector('#popup-add');
+  _formCardAdd = this._popupAdd.querySelector('.popup__form');
 
   constructor(card, selector) {
     this._card = card;
@@ -33,7 +42,7 @@ export default class Card {
     this._photoText.textContent = card.name;
     openPopup(this._popupPhoto);
   }
-
+  
   _toggleLike() {
     this._element.querySelector('.element__heart').classList.toggle('element__heart_active');
   }

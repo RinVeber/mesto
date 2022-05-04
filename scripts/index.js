@@ -9,8 +9,6 @@ const inputPlaceLink = popupAdd.querySelector('.popup__input_type_placeLink');
 const buttonCloseAdd = popupAdd.querySelector('.popup__close-button');
 
 const profileEdit = document.querySelector('.profile__edit');
-const popupEdit = document.querySelector('#popup-edit');
-const buttonClose = popupEdit.querySelector('.popup__close-button');
 const buttonAddCard = document.querySelector('.profile__add')
 
 const cardElements = document.querySelector('.elements__list');
@@ -20,6 +18,9 @@ const buttonClosePhotoShow = popupPhotoShow.querySelector('.popup__close-button'
 
 const userName = document.querySelector('.profile__name');
 const userDescription = document.querySelector('.profile__description');
+
+const popupEdit = document.querySelector('#popup-edit');
+const buttonClose = popupEdit.querySelector('.popup__close-button');
 
 const editElement = popupEdit.querySelector('.popup__form');
 const nameInput = popupEdit.querySelector('.popup__input_type_name');
@@ -89,7 +90,6 @@ function submitFormHandlerEdit(evt) {
 	checkInfoProfileEdit();
 	closePopup(popupEdit);
 }
-
 function openPopupEdit() {
 	nameInput.value = userName.textContent;
 	descriptionInput.value = userDescription.textContent;
@@ -137,4 +137,4 @@ formCardAdd.addEventListener('submit', submitFormHandlerAdd);
 
 renderCards(initialCards);
 
-export { openPopup, closePopup, handleEscPress };
+export { openPopup};
