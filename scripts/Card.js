@@ -6,8 +6,8 @@ export default class Card {
   _photoShow = this._popupPhoto.querySelector('.popup__image');
   _photoText = this._popupPhoto.querySelector('.popup__image-subtitle');
 
-  constructor(data, selector) {
-    this._data = data;
+  constructor(card, selector) {
+    this._card = card;
     this._selector = selector;
     this._toggleLike = this._toggleLike.bind(this);
     this._deleteCard = this._deleteCard.bind(this);
@@ -27,12 +27,11 @@ export default class Card {
     this._photoText.textContent = '';
   }
 
-  _openShowPhotoPopup({ name, link }) {
+  _openShowPhotoPopup(card) {
     this._resetShowPhotoPopup();
-    this._photoShow.src = link;
-    this._photoShow.alt = name;
-    this._photoText.textContent = name;
-
+    this._photoShow.src = card.link;
+    this._photoShow.alt = card.name;
+    this._photoText.textContent = card.name;
     openPopup(this._popupPhoto);
   }
 
@@ -47,7 +46,7 @@ export default class Card {
 
   _setEventListeners() {
     const image = this._element.querySelector('.element__photo');
-    image.addEventListener('click', () => this._openShowPhotoPopup(this._data));
+    image.addEventListener('click', () => this._openShowPhotoPopup(this._card));
 
     const like = this._element.querySelector('.element__heart');
     like.addEventListener('click', this._toggleLike);
@@ -61,10 +60,10 @@ export default class Card {
     this._setEventListeners();
 
     const photo = this._element.querySelector('.element__photo');
-    photo.alt = this._data.name;
-    photo.src = this._data.link;
+    photo.alt = this._card.name;
+    photo.src = this._card.link;
 
-    this._element.querySelector('.element__title').textContent = this._data.name;
+    this._element.querySelector('.element__title').textContent = this._card.name;
 
     return this._element;
   }

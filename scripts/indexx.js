@@ -25,7 +25,6 @@ const editElement = popupEdit.querySelector('.popup__form');
 const nameInput = popupEdit.querySelector('.popup__input_type_name');
 const descriptionInput = popupEdit.querySelector('.popup__input_type_description');
 
-
  const validateOption = {
 	formSelector: '.popup__form',
 	inputSelector: '.popup__input',
@@ -34,8 +33,7 @@ const descriptionInput = popupEdit.querySelector('.popup__input_type_description
 	inputErrorClass: 'popup__input_type_error',
 	errorClass: 'popup__error_visible',
   };
-
-  
+ 
   const validationPopupEdit = new FormValidator(validateOption, popupEdit);
   const validationPopupAdd = new FormValidator(validateOption, formCardAdd);
   
@@ -56,7 +54,6 @@ const descriptionInput = popupEdit.querySelector('.popup__input_type_description
   
 	cardElements.prepend(newCard);
   };
-
 
 function openPopup(popup) {
 	popup.classList.add('popup_opened');
@@ -93,6 +90,12 @@ function checkInfoProfileEdit() {
 	closePopup(popupAdd);
   };
 
+  function submitFormHandlerEdit(evt) {
+	evt.preventDefault(); // Эта строчка отменяет стандартную отправку формы.
+	checkInfoProfileEdit();
+	closePopup(popupEdit);
+}
+
 function openPopupEdit() {
 	nameInput.value = userName.textContent;
 	descriptionInput.value = userDescription.textContent;
@@ -106,12 +109,6 @@ const openAddPhotoPopup = () => {
 	openPopup(popupAdd);
   };
   
-
-function submitFormHandlerEdit(evt) {
-	evt.preventDefault(); // Эта строчка отменяет стандартную отправку формы.
-	checkInfoProfileEdit();
-	closePopup(popupEdit);
-}
 
 const handleEscPress = (evt) => {
 	if (evt.key === 'Escape') {
