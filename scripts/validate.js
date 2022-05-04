@@ -6,7 +6,7 @@ const showInputError = (formElement, inputElement, errorMessage, validationObj) 
 };
 
 const hideInputError = (formElement, inputElement, validationObj) => {
-  const errorElement = formElement.querySelector(`#${inputElement.id}-error`);
+  const errorElement = formElement.querySelector(`.${inputElement.id}-error`);
   errorElement.classList.remove(validationObj.errorClass);
   errorElement.textContent = ' ';
   inputElement.classList.remove(validationObj.inputErrorClass);
@@ -64,7 +64,7 @@ const enableValidation = (validationObj) => {
   formList.forEach(formSetList);
 }
 
-enableValidation({
+ enableValidation({
   formSelector: '.popup__form',
   inputSelector: '.popup__input',
   submitButtonSelector: '.popup__submit-button',

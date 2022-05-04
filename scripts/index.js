@@ -1,3 +1,4 @@
+
 const profileEdit = document.querySelector('.profile__edit');
 const popupEdit = document.querySelector('#popup-edit');
 const buttonClose = popupEdit.querySelector('.popup__close-button');
@@ -71,3 +72,5 @@ const closePopupOverlay = (evt) => {
 buttonClose.addEventListener('click', () => { closePopup(popupEdit) });
 profileEdit.addEventListener('click', openPopupEdit);
 editElement.addEventListener('submit', submitFormHandlerEdit);
+
+export { openPopup, closePopup, handleEscPress };
