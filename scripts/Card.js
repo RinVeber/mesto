@@ -1,4 +1,4 @@
-import { openPopup } from './indexx.js';
+import { openPopup } from './index.js';
 
 export default class Card {
   _popupPhoto = document.querySelector('#popup-photo');
