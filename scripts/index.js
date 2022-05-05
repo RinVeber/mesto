@@ -107,5 +107,3 @@ buttonClosePhotoShow.addEventListener('click', function (evt) {
 
 editElement.addEventListener('submit', submitFormHandlerEdit);
 formCardAdd.addEventListener('submit', submitFormHandlerAdd);
-
-export { openPopup};
