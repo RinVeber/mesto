@@ -1,6 +1,7 @@
 import initialCards from './initial-сards.js';
 import Card from './Card.js';
 import FormValidator from './FormValidator.js';
+import {openPopup, closePopup} from './utils.js';
 
 const popupAdd = document.querySelector('#popup-add');
 const formCardAdd = popupAdd.querySelector('.popup__form');
@@ -57,18 +58,6 @@ const addCard = () => {
 	cardElements.prepend(newCard);
 };
 
-
-function openPopup(popup) {
-	popup.classList.add('popup_opened');
-	popup.addEventListener('click', closePopupOverlay);
-	document.addEventListener('keydown', handleEscPress);
-}
-
-function closePopup(popup) {
-	document.removeEventListener('keydown', handleEscPress);
-	popup.classList.remove('popup_opened');
-}
-
 function checkInfoProfileEdit() {
 	const name = nameInput.value;
 	const description = descriptionInput.value;
@@ -104,24 +93,6 @@ const openAddPhotoPopup = () => {
 	validationPopupAdd.resetPopupForm();
 	openPopup(popupAdd);
 };
-
-
-const handleEscPress = (evt) => {
-	if (evt.key === 'Escape') {
-		const popup = document.querySelector('.popup_opened');
-		validationPopupEdit.resetPopupForm();
-		closePopup(popup);
-	}
-}
-
-const closePopupOverlay = (evt) => {
-	if (evt.target !== evt.currentTarget) {
-		return;
-	}
-	const popup = document.querySelector('.popup_opened');
-	validationPopupEdit.resetPopupForm();
-	closePopup(popup);
-}
 
 buttonAddCard.addEventListener('click', openAddPhotoPopup);
 profileEdit.addEventListener('click', openPopupEdit);

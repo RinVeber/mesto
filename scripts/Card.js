@@ -36,22 +36,12 @@ export default class Card {
   }
 
   _openShowPhotoPopup(card) {
-    this._resetShowPhotoPopup();
     this._photoShow.src = card.link;
     this._photoShow.alt = card.name;
     this._photoText.textContent = card.name;
     openPopup(this._popupPhoto);
   }
   
-  _toggleLike() {
-    this._element.querySelector('.element__heart').classList.toggle('element__heart_active');
-  }
-
-  _deleteCard() {
-    this._element.remove();
-    this._element = null;
-  }
-
   _setEventListeners() {
     const image = this._element.querySelector('.element__photo');
     image.addEventListener('click', () => this._openShowPhotoPopup(this._card));
@@ -62,6 +52,15 @@ export default class Card {
     const trash = this._element.querySelector('.element__delete');
     trash.addEventListener('click', this._deleteCard);
   }
+  _deleteCard() {
+    this._element.remove();
+    this._element = null;
+  }
+  
+  _toggleLike() {
+    this._element.querySelector('.element__heart').classList.toggle('element__heart_active');
+  }
+
 
   generate() {
     this._getElement();
