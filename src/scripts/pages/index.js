@@ -14,7 +14,7 @@ import {
   buttonEditProfile,
   buttonAddCard,
   cardElements,
-} from "../utils/utils.js";
+} from "../utils/constants";
 
 const formProfileValid = new FormValidator(validateOption,".popup__form_type-edit");
 const formCardValid = new FormValidator(validateOption, ".popup__form_type_card");
@@ -69,6 +69,6 @@ buttonEditProfile.addEventListener("click", () => {
 });
 
 buttonAddCard.addEventListener("click", () => {
-  popupMesto.open();
+  popupCard.open();
   formCardValid.checkButtonStateOpenPopup();
 });
