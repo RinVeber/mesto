@@ -1,4 +1,4 @@
-import { profileName, profileDescription } from "../utils/constants.js";
+import { profileName, profileDescription } from "../utils/utils.js";
 
 export default class UserInfo {
   constructor(formValues) {

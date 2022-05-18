@@ -1,3 +1,5 @@
+import '../../pages/index.css';
+
 import FormValidator from "../components/FormValidator.js";
 import Card from "../components/Card.js";
 import Section from "../components/Section.js";
@@ -12,7 +14,7 @@ import {
   buttonEditProfile,
   buttonAddCard,
   cardElements,
-} from "../utils/constants.js";
+} from "../utils/utils.js";
 
 const formProfileValid = new FormValidator(validateOption,".popup__form_type-edit");
 const formCardValid = new FormValidator(validateOption, ".popup__form_type_card");
