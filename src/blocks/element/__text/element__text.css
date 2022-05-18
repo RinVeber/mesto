@@ -1,0 +1,9 @@
+.element__text {
+    display: flex;
+    flex-direction: row;
+    background-color: #fff;
+    justify-content: space-between;
+    border-radius: 0 0 10px 10px;
+    max-width: 282px;
+    
+}

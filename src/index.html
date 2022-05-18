@@ -16,7 +16,7 @@
 
         <main class="content">
             <section class="profile">
-                <img src="image/profile_avatar.jpg" alt="Ваш аватар" class="profile__avatar">
+                <img src="./image/profile_avatar.jpg" alt="Ваш аватар" class="profile__avatar">
                 <div class="profile__info">
                     <h1 class="profile__name">Жак-Ив Кусто</h1>
                     <button type="button" class="profile__edit">
@@ -37,85 +37,94 @@
             <p class="footer__copyright">&copy; 2022 Кирилл.</p>
         </footer>
 
-        <div class="popup" id="popup-edit">
+        <section class="popup popup_type_edit">
             <div class="popup__window">
-                <button type="button" class="popup__close-button"></button>
-                <form name="popup_edit" class="popup__form" novalidate>
-                    <h2 class="popup__title">Редактировать профиль</h2>
+            <button class="popup__close-button" type="button"></button>
+              <form class="popup__form popup__form_type-edit" name="popup_edit" novalidate>
+                <h2 class="popup__title">Новое место</h2>
+                <div class="popup__form-wrap">
                     <input 
                     type="text" 
                     name="name" 
-                    id="name" 
+                    id="name-input" 
                     class="popup__input popup__input_type_name"
                     placeholder="Имя" 
                     minlength="2" 
                     maxlength="40" 
                     required>
-                    <span class="popup__error" id="name-error">Вы пропустили это поле.</span>
+                    <span class="popup__error name-input-error">Вы пропустили это поле.</span>
+                </div>
+                <div class="popup__form-wrap">
                     <input 
                     type="text" 
                     name="description" 
-                    id="description"  
+                    id="description-input"  
                     class="popup__input popup__input_type_description" 
                     placeholder="О себе" 
                     minlength="2"
                     maxlength="200" 
                     required>
-                    <span class="popup__error " id="description-error">Вы пропустили это поле.</span>
-                    <button type="submit" class="popup__submit-button popup__button">Сохранить</button>
-                </form>
+                    <span class="popup__error description-input-error">Вы пропустили это поле.</span>
+                </div>
+                <button type="submit" class="popup__submit-button popup__button">Сохранить</button>
+              </form>
             </div>
-        </div>
+          </section>
 
-        <div class="popup" id="popup-add">
+          <section class="popup popup_type_card">
             <div class="popup__window">
                 <button type="button" class="popup__close-button "></button>
-                <form name="popup-card-add" class="popup__form" novalidate>
+                <form name="popup-card-add" class="popup__form popup__form_type_card" novalidate>
                     <h2 class="popup__title">Новое место</h2>
+                    <div class="popup__form-wrap">
                     <input 
                     type="text" 
-                    name="placeName" 
-                    id="placeName" 
-                    class="popup__input popup__input_type_placeName"
+                    name="name" 
+                    id="name-input" 
+                    class="popup__input popup__input_type_name"
                     placeholder="Название" 
                     minlength="2" 
                     maxlength="30" 
                     required>
-                    <span class="popup__error" id="placeName-error">Вы пропустили это поле.</span>
+                    <span class="popup__error name-input-error">Вы пропустили это поле.</span>
+                </div>
+                <div class="popup__form-wrap">
                     <input 
                     type="url" 
-                    name="placeLink"
-                    id="placeLink" 
-                    class="popup__input popup__input_type_placeLink"
+                    name="link"
+                    id="link-input" 
+                    class="popup__input popup__input_type_link"
                     placeholder="Ссылка на картинку" 
                     required>
-                    <span class="popup__error" id="placeLink-error">Введите адрес сайта.</span>
+                    <span class="popup__error link-input-error">Введите адрес сайта.</span>
+                </div>
                     <button type="submit" class="popup__submit-button popup__button">Создать</button>
                 </form>
             </div>
-        </div>
-
-        <div class="popup popup_overlay-black" id="popup-photo">
+        </section>
+      
+          <section class="popup popup_overlay-black popup_type_image">
             <div class="popup__fullscreen">
                 <button type="button" class="popup__close-button "></button>
                 <img class="popup__image" alt="тут картинка" src="#">
+                <figcaption class="popup__caption"></figcaption>
                 <p class="popup__image-subtitle"></p>
             </div>
+        </section>
+      
         </div>
-
-        <template id="card-template">
-            <li class="element">
+        <template class="card_type_template">
+            <article class="element">
                 <button type="button" class="element__delete"></button>
-                <img src="#" alt="" class="element__photo">
+                <img src="#" alt="#" class="element__photo">
                 <div class="element__text">
                     <h3 class="element__title"></h3>
                     <button type="button" class="element__heart"></button>
                 </div>
-            </li>
+            </article>
         </template>
-    </div>
-    <script type="module" src="./scripts/index.js"></script>
-    
+
+<script type="module" src="./scripts/pages/index.js"></script>
 </body>
 
 </html>
