@@ -53,7 +53,7 @@
                     minlength="2" 
                     maxlength="40" 
                     required>
-                    <span class="popup__error name-input-error">Вы пропустили это поле.</span>
+                    <span class="popup__error name-input-error" id="name-error">Вы пропустили это поле.</span>
                     <input 
                     type="text" 
                     name="description" 
@@ -63,7 +63,7 @@
                     minlength="2"
                     maxlength="200" 
                     required>
-                    <span class="popup__error description-input-error">Вы пропустили это поле.</span>
+                    <span class="popup__error description-input-error" id="description-error">Вы пропустили это поле.</span>
                 
                 <button type="submit" class="popup__submit-button popup__button">Сохранить</button>
               </form>
@@ -84,7 +84,7 @@
                     minlength="2" 
                     maxlength="30" 
                     required>
-                    <span class="popup__error name-input-error">Вы пропустили это поле.</span>           
+                    <span class="popup__error name-input-error" id="name-error">Вы пропустили это поле.</span>           
                     <input 
                     type="url" 
                     name="link"
@@ -92,7 +92,7 @@
                     class="popup__input popup__input_type_link"
                     placeholder="Ссылка на картинку" 
                     required>
-                    <span class="popup__error link-input-error">Введите адрес сайта.</span>
+                    <span class="popup__error link-input-error" id="link-error">Введите адрес сайта.</span>
                     <button type="submit" class="popup__submit-button popup__button">Создать</button>
                 </form>
             </div>

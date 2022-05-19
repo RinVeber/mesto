@@ -12,21 +12,21 @@ export default class FormValidator {
   }
   _getErrorElement(inputElement) {
     return this._formElement.querySelector(
-      `.${inputElement.id}-error`
+      `#${inputElement.id}-error`
     );
   }
   _showError(inputElement, errorMessage) {
     const errorElement = this._getErrorElement(inputElement);
-    errorElement.textContent = errorMessage;
-    errorElement.classList.add(this._validateOption.errorClass);
     inputElement.classList.add(this._validateOption.inputErrorClass);
+    errorElement.classList.add(this._validateOption.errorClass);
+    errorElement.textContent = errorMessage;
   }
 
   _hideError(inputElement) {
     const errorElement = this._getErrorElement(inputElement);
-    errorElement.textContent = "";
-    errorElement.classList.remove(this._validateOption.errorClass);
     inputElement.classList.remove(this._validateOption.inputErrorClass);
+    errorElement.classList.remove(this._validateOption.errorClass);
+    errorElement.textContent = "";
   }
 
   _checkValidity(inputElement) {
@@ -57,20 +57,7 @@ export default class FormValidator {
     this._submitButtonElement.classList.add(this._validateOption.inactiveButtonClass);
     this._submitButtonElement.disabled = true;
   };
-  _setEventListeners(formElement, validationObj) {
-    const { inputSelector,
-      submitButtonSelector,
-      inactiveButtonClass,
-      inputErrorClass,
-      errorClass } = validationObj;
-
-    const inputList = Array.from(formElement.querySelectorAll(inputSelector));
-    const submitButtonElement = formElement.querySelector(submitButtonSelector);
-    this._toggleButtonState(inputList, submitButtonElement, inactiveButtonClass);  
-
-    inputList.forEach(inputListIterator);
-  }
-
+ 
   enableValidation() {
     this._inputList.forEach((inputElement) => {
       inputElement.addEventListener("input", () => {
@@ -81,7 +68,7 @@ export default class FormValidator {
   }
   resetPopupForm() {
     this._errorFields.forEach((field) => field.textContent = '');
-    this._inputList.forEach((input) => input.classList.remove(this._validateOption.inputErrorClass));
+    this._inputList.forEach((inputElement) => inputElement.classList.remove(this._validateOption.inputErrorClass));
     this._setDisabledOnSubmitButton();
   };
 

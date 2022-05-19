@@ -64,11 +64,10 @@ buttonEditProfile.addEventListener("click", () => {
   inputProfileDescription.value = userInfo.description;
 
   popupProfile.open();
-
-  formProfileValid.checkButtonStateOpenPopup();
+  formProfileValid.resetPopupForm();
 });
 
 buttonAddCard.addEventListener("click", () => {
   popupCard.open();
-  formCardValid.checkButtonStateOpenPopup();
+  formCardValid.resetPopupForm();
 });
