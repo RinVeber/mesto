@@ -54,8 +54,8 @@ export const formCard = document
   .querySelector(".popup_type_card")
   .querySelector(".popup__form");
 
-export const profileName = document.querySelector(".profile__name");
-export const profileDescription = document.querySelector(".profile__description");
+export const profileNameSelector = document.querySelector(".profile__name");
+export const profileDescriptionSelector = document.querySelector(".profile__description");
 
 export const inputProfileName = document
   .querySelector(".popup_type_edit")
@@ -68,3 +68,4 @@ export const buttonEditProfile= document.querySelector(".profile__edit");
 export const buttonAddCard = document.querySelector(".profile__add");
 
 export const cardElements = document.querySelector(".elements__list");
+export const cardSelector =  document.querySelector(".card_type_template");

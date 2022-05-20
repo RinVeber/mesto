@@ -1,20 +1,18 @@
-import { profileName, profileDescription } from "../utils/constants.js";
-
 export default class UserInfo {
-  constructor(formValues) {
-    this._formValues = formValues;
-    this.profileName = document.querySelector(".profile__name");
-    this.profileDescription = document.querySelector(".profile__description");
+  constructor() {
+    this._profileName = document.querySelector(".profile__name");
+    this._profileDescription = document.querySelector(".profile__description");
   }
 
-  setUserInfo() {
-    profileName.textContent = this._formValues.name;
-    profileDescription.textContent = this._formValues.description;
+  setUserInfo( { name, description } ) {
+    this._profileName.textContent = name;
+    this._profileDescription.textContent = description;
   }
 
   getUserInfo() {
-    this._formValues.name = profileName.textContent;
-    this._formValues.description = profileDescription.textContent;
-    return this._formValues;
+    return {
+      name: this._profileName.textContent,
+      description: this._profileDescription.textContent
+    }
   }
 }
