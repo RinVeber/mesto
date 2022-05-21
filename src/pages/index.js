@@ -14,9 +14,11 @@ import {
   buttonEditProfile,
   buttonAddCard,
   cardElements,
+  profileNameSelector,
+  profileDescriptionSelector
 } from "../scripts/utils/constants";
 
-const formProfileValid = new FormValidator(validateOption,".popup__form_type-edit");
+const formProfileValid = new FormValidator(validateOption, ".popup__form_type-edit");
 const formCardValid = new FormValidator(validateOption, ".popup__form_type_card");
 
 formProfileValid.enableValidation();
@@ -26,7 +28,7 @@ const popupImage = new PopupWithImage(".popup_type_image");
 popupImage.setEventListeners();
 
 const createCard = (item) => {
-  const card =  new Card(item, ".card_type_template", (data) => {
+  const card = new Card(item, ".card_type_template", (data) => {
     popupImage.open(data);
   })
   return card.generate();
@@ -37,17 +39,16 @@ const cardList = new Section(
   {
     items: initialCards,
     renderer: (item) => {
-      createCard(item);
       cardList.addItem(createCard(item));
     },
   },
   cardElements);
 
-const userInfo = new UserInfo();
+const userInfo = new UserInfo(".profile__name", ".profile__description");
 
 cardList.renderItems();
 const popupProfile = new PopupWithForm({
-  popupSelector: ".popup_type_edit", 
+  popupSelector: ".popup_type_edit",
   callbackFormSubmit: (item) => {
     userInfo.setUserInfo(item);
   },
@@ -55,9 +56,8 @@ const popupProfile = new PopupWithForm({
 popupProfile.setEventListeners();
 
 const popupCard = new PopupWithForm({
-  popupSelector: ".popup_type_card", 
+  popupSelector: ".popup_type_card",
   callbackFormSubmit: (item) => {
-    createCard(item);
     cardList.addItem(createCard(item));
   },
 });
@@ -67,6 +67,7 @@ buttonEditProfile.addEventListener("click", () => {
   const getInfo = userInfo.getUserInfo();
   inputProfileName.value = getInfo.name;
   inputProfileDescription.value = getInfo.description;
+
 
   popupProfile.open();
   formProfileValid.resetPopupForm();
