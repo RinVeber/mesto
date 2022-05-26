@@ -111,7 +111,7 @@ const popupProfile = new PopupWithForm({
         userInfo.setUserInfo(dataInfo);
         popupProfile.close();
       })
-      .catch((error) => console.log(error))
+      .catch((err) => console.log(err))
       .finally(() => popupProfile.isLoadingMessage(false));
   },
 });
@@ -127,7 +127,7 @@ const popupCard = new PopupWithForm({
         cardList.addItemPrepend(newCard);
         popupCard.close();
       })
-      .catch((error) => console.log(error))
+      .catch((err) => console.log(err))
       .finally(() => popupCard.isLoadingMessage(false));
   },
 });
@@ -142,7 +142,7 @@ const popupAvatar = new PopupWithForm({
         userInfo.setUserInfo(cardInfo);
         popupAvatar.close();
       })
-      .catch((error) => console.log(error))
+      .catch((err) => console.log(err))
       .finally(() => popupAvatar.isLoadingMessage(false));
   },
 });
