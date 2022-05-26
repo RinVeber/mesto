@@ -1,46 +1,3 @@
-const sakura = new URL('../../image/card_1.jpg', import.meta.url);
-const jinx = new URL('../../image/card_2.jpeg', import.meta.url);
-const kosmos = new URL('../../image/card_3.jpg', import.meta.url);
-const china = new URL('../../image/card_4.jpg', import.meta.url);
-const whitefox = new URL('../../image/card_5.jpg', import.meta.url);
-const zakat = new URL('../../image/card_6.jpg', import.meta.url);
-const island = new URL('../../image/card_7.jpg', import.meta.url);
-const kamchatka = new URL('../../image/card_8.jpg', import.meta.url);
-export const initialCards = [
-  {
-    name: 'Девушка под Сакурой',
-    link: sakura
-  },
-  {
-    name: 'Остров',
-    link: island
-  },
-  {
-    name: 'Белый лис',
-    link: whitefox
-  },
-  {
-    name: 'Закат',
-    link: zakat
-  },
-  {
-    name: 'Камчатка',
-    link: kamchatka
-  },
-  {
-    name: 'Китай, Императоры Ян и Хуан',
-    link: china
-  },
-  {
-    name: 'Джинкс',
-    link: jinx
-  },
-  {
-    name: 'Черная дыра',
-    link: kosmos
-  }
-  ]; 
-
 export const validateOption = {
 	formSelector: '.popup__form',
 	inputSelector: '.popup__input',
@@ -63,7 +20,7 @@ export const inputProfileName = document
   .querySelector(".popup__input_type_name");
 export const inputProfileDescription = document
   .querySelector(".popup_type_edit")
-  .querySelector(".popup__input_type_description");
+  .querySelector(".popup__input_type_about");
 
 export const buttonEditProfile= document.querySelector(".profile__edit");
 export const buttonAddCard = document.querySelector(".profile__add");

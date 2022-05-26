@@ -8,7 +8,8 @@ export default class UserInfo {
   setUserInfo( { name, about, avatar } ) {
     this._profileName.textContent = name;
     this._profileDescription.textContent = about;
-  
+    this._profileAvatar.src = avatar;
+    this._profileAvatar.alt = name;
   }
 
   getUserInfo() {

@@ -1,10 +1,10 @@
 export default class Api {
-    constructor({url, token}) {
-      this._url = url;
-      this._token = token;
-  }
+  constructor({url, token}) {
+    this._url = url;
+    this._token = token;
+}
 
-  getUserProfile() {
+  getProfile() {
     return fetch(`${this._url}/users/me`, {
       method: 'GET',
       headers: {
@@ -13,13 +13,8 @@ export default class Api {
     })
     .then(this._checkStatus)
   }
-  _checkStatus(res) {
-    if (res.ok) {
-      return res.json();
-    }
-    return Promise.reject(`Error: ${res.status}`);
-  }
-  setUserProfile(data) {
+  
+  setProfile(data) {
     return fetch(`${this._url}/users/me`, {
       method: 'PATCH',
       headers: {
@@ -33,7 +28,8 @@ export default class Api {
     })
     .then(this._checkStatus)
   }
-  editUserAvatar(data) {
+  
+  editAvatar(data) {
     return fetch(`${this._url}/users/me/avatar`, {
       method: 'PATCH',
       headers: {
@@ -46,6 +42,7 @@ export default class Api {
     })
     .then(this._checkStatus)
   }
+  
   getInitialCards() {
     return fetch(`${this._url}/cards`, {
       method: 'GET',
@@ -55,6 +52,7 @@ export default class Api {
     })
     .then(this._checkStatus)
   }
+  
   addNewCard(data) {
     return fetch(`${this._url}/cards`, {
       method: 'POST',
@@ -70,7 +68,7 @@ export default class Api {
     .then(this._checkStatus)
   }
   
-  removeCard(id) {
+  deleteCard(id) {
     return fetch(`${this._url}/cards/${id}`, {
       method: 'DELETE',
       headers: {
@@ -79,6 +77,7 @@ export default class Api {
     })
     .then(this._checkStatus)
   }
+  
   addLikeCard(id) {
     return fetch(`${this._url}/cards/likes/${id}`, {
       method: 'PUT',
@@ -88,7 +87,7 @@ export default class Api {
     })
     .then(this._checkStatus)
   }
-  // Снятие лайка
+  
   removeLikeCard(id) {
     return fetch(`${this._url}/cards/likes/${id}`, {
       method: 'DELETE',
@@ -97,5 +96,11 @@ export default class Api {
       }
     })
     .then(this._checkStatus)
+  }
+  _checkStatus(res) {
+    if (res.ok) {
+      return res.json();
+    }
+    return Promise.reject(`Error: ${res.status}`);
   }
 }
