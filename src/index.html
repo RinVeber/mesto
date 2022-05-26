@@ -17,8 +17,10 @@
 
         <main class="content">
             <section class="profile">
+                <div class="profile__avatar-overlay">
                 <img src="<%=require('./image/profile_avatar.jpg')%>" 
                      alt="Ваш аватар" class="profile__avatar">
+        </div>
                 <div class="profile__info">
                     <h1 class="profile__name">Жак-Ив Кусто</h1>
                     <button type="button" class="profile__edit">
@@ -56,16 +58,45 @@
                     <span class="popup__error name-input-error" id="name-error">Вы пропустили это поле.</span>
                     <input 
                     type="text" 
-                    name="description" 
+                    name="about" 
                     id="description-input"  
                     class="popup__input popup__input_type_description" 
                     placeholder="О себе" 
                     minlength="2"
                     maxlength="200" 
                     required>
-                    <span class="popup__error description-input-error" id="description-error">Вы пропустили это поле.</span>
+                    <span class="popup__error about-input-error" id="about-error">Вы пропустили это поле.</span>
                 
                 <button type="submit" class="popup__submit-button popup__button">Сохранить</button>
+              </form>
+            </div>
+          </section>
+
+          <section class="popup popup_type_avatar">
+            <div class="popup__window">
+            <button class="popup__close-button" type="button"></button>
+              <form class="popup__form popup__form_type_avatar" name="popup_avatar" novalidate>
+                <h2 class="popup__title">Обновить аватар</h2>
+                  <input 
+                   class="popup__input"
+                   name="avatar" 
+                   id="link-input"
+                   type="url" 
+                   placeholder="Ссылка на аватарку" 
+                   required>
+                  <span class="popup__error link-input-error" id="link-error">Вы пропустили это поле.</span>
+            
+                <button class="popup__submit-button popup__button" type="submit">Сохранить</button>
+              </form>
+            </div>
+          </section>
+
+          <section class="popup popup_type_delete">
+            <div class="popup__window">
+                <button class="popup__close-button" type="button"></button>
+              <form class="popup__form popup__form_type_delete">
+                <h2 class="popup__title">Вы уверены?</h2>
+                <button class="popup__submit-button popup__button" type="submit">Да</button>
               </form>
             </div>
           </section>
@@ -114,6 +145,7 @@
                 <div class="element__text">
                     <h3 class="element__title"></h3>
                     <button type="button" class="element__heart"></button>
+                    <p class="element__like-counter"></p>
                 </div>
             </div>
         </template>

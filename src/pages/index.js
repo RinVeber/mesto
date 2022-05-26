@@ -6,6 +6,8 @@ import Section from "../scripts/components/Section.js";
 import PopupWithImage from "../scripts/components/PopupWithImage.js";
 import PopupWithForm from "../scripts/components/PopupWithForm.js";
 import UserInfo from "../scripts/components/UserInfo.js";
+import PopupDelete from "../scripts/components/PopupDelete.js";
+import Api from "../scripts/components/Api.js";
 import {
   initialCards,
   validateOption,
@@ -15,17 +17,25 @@ import {
   buttonAddCard,
   cardElements,
   profileNameSelector,
-  profileDescriptionSelector
+  profileDescriptionSelector,
+  buttonEditAvatar
 } from "../scripts/utils/constants";
 
 const formProfileValid = new FormValidator(validateOption, ".popup__form_type-edit");
 const formCardValid = new FormValidator(validateOption, ".popup__form_type_card");
+const formAvatarValid = new FormValidator(validateOption, ".popup__form_type_avatar");
 
 formProfileValid.enableValidation();
 formCardValid.enableValidation();
+formAvatarValid.enableValidation();
 
 const popupImage = new PopupWithImage(".popup_type_image");
 popupImage.setEventListeners();
+
+const api = new Api({
+  url: "cohort-41",
+  token: "229f91f0-a39c-41b3-9031-5892deafd93d"
+})
 
 const createCard = (item) => {
   const card = new Card(item, ".card_type_template", (data) => {
@@ -44,7 +54,7 @@ const cardList = new Section(
   },
   cardElements);
 
-const userInfo = new UserInfo(".profile__name", ".profile__description");
+const userInfo = new UserInfo(".profile__name", ".profile__description", ".profile__avatar");
 
 cardList.renderItems();
 const popupProfile = new PopupWithForm({
@@ -63,10 +73,31 @@ const popupCard = new PopupWithForm({
 });
 popupCard.setEventListeners();
 
+const popupAvatar = new PopupWithForm({
+  popupSelector: ".popup_type_avatar",
+  callbackFormSubmit: (data) => {
+    popupAvatar.setUserUX(true);
+
+    api.editUserAvatar(data)
+      .then((objectInfo) => {
+        userInfo.setUserInfo(objectInfo);
+        popupAvatar.close();
+      })
+      .catch((error) => console.log(error))
+      .finally(() => popupAvatar.setUserUX(false));
+  },
+});
+popupAvatar.setEventListeners();
+
+const popupDelCard = new PopupDelete({
+  popupSelector: ".popup_type_delete",
+});
+popupDelCard.setEventListeners();
+
 buttonEditProfile.addEventListener("click", () => {
   const getInfo = userInfo.getUserInfo();
   inputProfileName.value = getInfo.name;
-  inputProfileDescription.value = getInfo.description;
+  inputProfileDescription.value = getInfo.about;
 
 
   popupProfile.open();
@@ -76,4 +107,10 @@ buttonEditProfile.addEventListener("click", () => {
 buttonAddCard.addEventListener("click", () => {
   popupCard.open();
   formCardValid.resetPopupForm();
+});
+
+buttonEditAvatar.addEventListener("click", () => {
+  popupAvatar.open();
+
+  formAvatarValid.resetPopupForm();
 });

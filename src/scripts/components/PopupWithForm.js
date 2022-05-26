@@ -16,6 +16,14 @@ export default class PopupWithForm extends Popup {
 
     return this._formValues;
   }
+  setInputValues(data) {
+    this._inputList.forEach((input) => {
+      input.value = data[input.name];
+    });
+  }
+  setUserUX(isSending) {
+    this._button.textContent = isSending ? 'Загрузка...' : this._buttonDefaultText;
+  }
 
   setEventListeners() {
     super.setEventListeners();

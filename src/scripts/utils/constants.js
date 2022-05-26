@@ -56,6 +56,7 @@ export const formCard = document
 
 export const profileNameSelector = document.querySelector(".profile__name");
 export const profileDescriptionSelector = document.querySelector(".profile__description");
+export const profileAvatarSelector = document.querySelector(".profile__avatar");
 
 export const inputProfileName = document
   .querySelector(".popup_type_edit")
@@ -66,6 +67,7 @@ export const inputProfileDescription = document
 
 export const buttonEditProfile= document.querySelector(".profile__edit");
 export const buttonAddCard = document.querySelector(".profile__add");
+export const buttonEditAvatar = document.querySelector(".profile__avatar-overlay");
 
 export const cardElements = document.querySelector(".elements__list");
 export const cardSelector =  document.querySelector(".card_type_template");
