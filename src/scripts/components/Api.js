@@ -28,21 +28,7 @@ export default class Api {
     })
     .then(this._checkStatus)
   }
-  
-  editAvatar(data) {
-    return fetch(`${this._url}/users/me/avatar`, {
-      method: 'PATCH',
-      headers: {
-        authorization: this._token,
-        'Content-Type': 'application/json'
-      },
-      body: JSON.stringify({
-        avatar: data.avatar,
-      })
-    })
-    .then(this._checkStatus)
-  }
-  
+    
   getInitialCards() {
     return fetch(`${this._url}/cards`, {
       method: 'GET',
@@ -94,6 +80,20 @@ export default class Api {
       headers: {
         authorization: this._token
       }
+    })
+    .then(this._checkStatus)
+  }
+
+  editAvatar(data) {
+    return fetch(`${this._url}/users/me/avatar`, {
+      method: 'PATCH',
+      headers: {
+        authorization: this._token,
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify({
+        avatar: data.avatar,
+      })
     })
     .then(this._checkStatus)
   }
