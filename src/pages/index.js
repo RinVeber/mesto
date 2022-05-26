@@ -29,7 +29,10 @@ formAvatarValid.enableValidation();
 
 const api = new Api({
   url: "https://mesto.nomoreparties.co/v1/cohort-41",
-  token: "229f91f0-a39c-41b3-9031-5892deafd93d"
+  headers: {
+    authorization: "229f91f0-a39c-41b3-9031-5892deafd93d",
+    'Content-Type': 'application/json'
+  }
 });
 
 const popupImage = new PopupWithImage(".popup_type_image");
